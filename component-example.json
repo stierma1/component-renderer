@@ -1,0 +1,17 @@
+
+{
+  "renderTmpl":{
+    "format": "dust",
+    "returnFormat": "text/html",
+    "renderString": "{data.queries.test.origin}"
+  },
+  "queries": {
+    "test":{
+      "id":"test",
+      "queryType":"http",
+      "format": "json",
+      "queryTmpl": "https://httpbin.org/get"
+    }
+  },
+  "transform": "add-one"
+}
