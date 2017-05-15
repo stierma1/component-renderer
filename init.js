@@ -3,6 +3,7 @@ var TransformerModule = require("./lib/transformer-runner");
 var load = require("./lib/transformer-loader");
 var Server = require("./lib/server");
 var PouchDb = require("pouchdb");
+var logger = require("./lib/logger")
 
 async function init(){
   await load();
@@ -10,11 +11,11 @@ async function init(){
   TransformerModule.globalRunner = T_Runner;
   var server = new Server();
   await server.start();
-  console.log("Server Up");
+  logger.info("Initialization Complete")
 }
 
 try{
   init();
 } catch(err){
-  console.log(err)
+  logger.error(err);
 }
